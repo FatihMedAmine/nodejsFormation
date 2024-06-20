@@ -25,96 +25,128 @@
 </head>
 
 <body>
-    <!-- dark-light-mode -->
-   <%- include('../components/dark-light-mode.ejs') %>
+  <!-- dark-light-mode -->
+  <%- include('../components/dark-light-mode.ejs') %>
 
-  <main class="d-flex flex-nowrap">
+    <main class="d-flex flex-nowrap">
 
-       <%- include('../components/sidebar.ejs',{currentPage : "AddCustomers"}) %>
-
-
+      <%- include('../components/sidebar.ejs',{currentPage : "AddCustomers" }) %>
 
 
 
 
 
-    <section class="w-100">
-        <%- include('../components/navbar.ejs') %>
 
 
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mt-3 ms-3">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Library</li>
-        </ol>
-      </nav>
-
-      <!-- formulaire -->
-      <form class="row g-3 mx-0" method="post" action="/user/AddCustomers.html">
-        <div class="col-md-6">
-          <label for="first-name" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="first-name" placeholder="ex : Med-Amine" name="firstname">
-        </div>
-        <div class="col-md-6">
-          <label for="last-name" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="last-name" placeholder="ex : Fatih" name="lastname">
-        </div>
-        <div class="col-md-6">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="ex : example@gmail.com" name="email">
-        </div>
-        <div class="col-md-6">
-          <label for="phone-number" class="form-label">Phone Number</label>
-          <input type="text" class="form-control" id="phone-number" placeholder="ex : 0674535810" name="phone">
-        </div>
-        <div class="col-md-6">
-          <label for="age" class="form-label">Age</label>
-          <input type="number" class="form-control" id="age" placeholder="ex : 19" min="7" name="age">
-        </div>
-
-        <div>
-          <div class="col-md-6">
-            <label for="Country" class="form-label">Country</label>
-            <select id="Country" class="form-select" name="country">
-              <option selected hidden disabled>Choose Here ..</option>
-              <option value="Morocco">Morocco</option>
-              <option value="Italie">Italie</option>
-            </select>
-          </div>
-        </div>
-        </div>
-
-        <div>
-          <div class="col-md-6">
-            <label for="gender" class="form-label">Gender
-            </label>
-            <select id="gender" class="form-select" name="gender">
-              <option selected hidden disabled >Choose Here ..</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-            </select>
-          </div>
-        </div>
-        </div>
+        <section class="w-100">
+          <%- include('../components/navbar.ejs') %>
 
 
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-        
-      </form>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mt-3 ms-3">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+              </ol>
+            </nav>
+
+            <!-- formulaire -->
+            <form class="row g-3 mx-0" method="post" action="/user/AddCustomers.html">
+              <div class="col-md-6">
+                <label for="first-name" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="first-name" placeholder="ex : Med-Amine" name="firstname">
+              </div>
+              <div class="col-md-6">
+                <label for="last-name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last-name" placeholder="ex : Fatih" name="lastname">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="ex : example@gmail.com" name="email">
+              </div>
+              <div class="col-md-6">
+                <label for="phone-number" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone-number" placeholder="ex : 0674535810" name="phone">
+              </div>
+              <div class="col-md-6">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" placeholder="ex : 19" min="7" name="age">
+              </div>
+
+              <div>
+                <div class="col-md-6">
+                  <label for="Country" class="form-label">Country</label>
+                  <select id="Country" class="form-select" name="country">
+                    <option selected hidden disabled>Choose Here ..</option>
+
+                    <% var country_list = [
+                    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", 
+                    "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", 
+                    "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", 
+                    "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", 
+                    "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Chad", "Chile", 
+                    "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D'Ivoire", "Croatia", "Cruise Ship", 
+                    "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", 
+                    "Egypt", "El Salvador", "Equatorial Guinea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", 
+                    "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", 
+                    "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", 
+                    "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", 
+                    "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", 
+                    "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyz Republic", "Laos", "Latvia", "Lebanon", "Lesotho", 
+                    "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", 
+                    "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania", "Mauritius", "Mexico", "Moldova", 
+                    "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", 
+                    "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", 
+                    "Nigeria", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", 
+                    "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", 
+                    "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Satellite", "Saudi Arabia", "Senegal", 
+                    "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "South Africa", 
+                    "South Korea", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "St. Lucia", "Sudan", 
+                    "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", 
+                    "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", 
+                    "Turkmenistan", "Turks & Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", 
+                    "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"
+                ]; %>
+
+                    <% country_list.forEach((item)=> { %>
+                      <option value="<%= item %>"><%= item %></option>
+                    <% }) %>
+                
+                  </select>
+                </div>
+              </div>
+              </div>
+
+              <div>
+                <div class="col-md-6">
+                  <label for="gender" class="form-label">Gender
+                  </label>
+                  <select id="gender" class="form-select" name="gender">
+                    <option selected hidden disabled>Choose Here ..</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
+                </div>
+              </div>
+              </div>
+
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+
+            </form>
 
 
 
-    </section>
+        </section>
 
-  </main>
+    </main>
 
 
-  <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
 
-  <script src="../js/sidebars.js"></script>
-  <script src="../js/main.js"></script>
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

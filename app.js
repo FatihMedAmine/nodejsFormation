@@ -7,6 +7,8 @@ const User = require('./models/customersShema');
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 var moment = require('moment'); // require
+var methodeOverride = require('method-override')
+app.use(methodeOverride('_method'))
 
 
 const path = require("path");
@@ -31,6 +33,7 @@ liveReloadServer.server.once("connection", () => {
 
 
 
+// Get Request
 
 //Nb : cest que on est dans views folder
 app.get('/', (req, res) => {
@@ -52,13 +55,17 @@ app.get('/user/AddCustomers.html', (req, res) => {
 })
 
 
-app.get('/user/edit.html', (req, res) => {
-
-  res.render('user/edit')
-
+app.get('/edit/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(result => {
+      res.render('user/edit', { user: result })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 
-app.get('/user/:id', (req, res) => {
+app.get('/view/:id', (req, res) => {
   User.findById(req.params.id)
     .then(result => {
       res.render('user/view', { user: result , moment: moment})
@@ -70,6 +77,7 @@ app.get('/user/:id', (req, res) => {
 
 
 
+// Post Request
 app.post('/', (req, res) => {
   const article = new Mydata({
     username: req.body.username
@@ -94,6 +102,37 @@ app.post('/user/AddCustomers.html', (req, res) => {
   })
 
 })
+
+
+// Put Request
+app.put('/edit/:id', (req, res) => {
+  User.findByIdAndUpdate
+    (req.params.id, req.body).then(result => {
+      res.redirect('/')
+    }).catch(err => {
+      console.log(err)
+    })
+})
+
+
+
+// Delete Request
+app.delete('/edit/:id', (req, res) => {
+  User.findByIdAndDelete(req.params.id).then(result => {
+  res.redirect('/') 
+  }
+  ).catch(err => {
+    console.log(err)
+  })
+})
+
+
+
+
+
+
+
+
 
 mongoose.connect('mongodb+srv://Med-Amine:YjpP1EZWdi4icrrN@cluster0.p4zcjmd.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => {

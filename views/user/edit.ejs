@@ -25,123 +25,182 @@
 </head>
 
 <body>
-      <!-- dark-light-mode -->
+    <!-- dark-light-mode -->
     <%- include('../components/dark-light-mode.ejs') %>
 
-    <main class="d-flex flex-nowrap">
+        <main class="d-flex flex-nowrap">
 
 
 
-        <%- include('../components/sidebar.ejs',{currentPage : "edit"}) %>
+            <%- include('../components/sidebar.ejs',{currentPage : "edit" }) %>
 
-        <section class="w-100">
-
-
-
-            <%- include('../components/navbar.ejs') %>
+                <section class="w-100">
 
 
 
-            <nav aria-label="breadcrumb" class="d-flex   mt-3  ms-1 justify-content-md-between px-2  flex-wrap">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Amine Fatih</li>
-                </ol>
-                <p class="me-md-5"><span class="fw-medium fs-5">Id :</span> 84932926398463922</p>
-              </nav>
+                    <%- include('../components/navbar.ejs') %>
+
+
+
+                        <nav aria-label="breadcrumb"
+                            class="d-flex   mt-3  ms-1 justify-content-md-between px-2  flex-wrap">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <%= user.firstname +" "+ user.lastname%></li>
+                            </ol>
+                            <p class=" me-md-5"><span class="fw-medium fs-5">Id :</span>
+                                        <%= user._id%>
+                                            </p>
+                        </nav>
 
 
 
 
 
-            <!-- formulaire -->
-            <form class="row g-3 mx-0">
-                <div class="col-md-6">
-                    <label for="first-name" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="first-name" placeholder="ex : Med-Amine">
-                </div>
-                <div class="col-md-6">
-                    <label for="last-name" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="last-name" placeholder="ex : Fatih">
-                </div>
-                <div class="col-md-6">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="ex : example@gmail.com">
-                </div>
-                <div class="col-md-6">
-                    <label for="phone-number" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" id="phone-number" placeholder="ex : 0674535810">
-                </div>
-                <div class="col-md-6">
-                    <label for="age" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="age" placeholder="ex : 19" min="7">
-                </div>
+                        <!-- formulaire -->
+                    <form class="row g-3 mx-0" action="/edit/<%= user._id %>?_method=PUT" method="post" >
+                        <div class="col-md-6">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="first-name" value="<%= user.firstname %>"
+                                name="firstname">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="last-name" value="<%= user.lastname %>"
+                                name="lastname">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" value="<%= user.email %>" name="email">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone-number" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone-number" value="<%= user.phone %>"
+                                name="phone">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" min="7" value="<%= user.age %>"
+                                name="age">
+                        </div>
 
-                <div>
-                    <div class="col-md-6">
-                        <label for="Country" class="form-label">Country</label>
-                        <select id="Country" class="form-select">
-                            <option selected hidden disabled>Choose Here ..</option>
-                            <option>Morocco</option>
-                        </select>
+                        <div>
+                            <div class="col-md-6">
+                                <label for="Country" class="form-label">Country</label>
+                                <select id="Country" class="form-select" name="country">
+                                    <option selected hidden disabled>Choose Here ..</option>
+
+                                    <% var country_list=[ "Afghanistan" , "Albania" , "Algeria" , "Andorra" , "Angola"
+                                        , "Anguilla" , "Antigua & Barbuda" , "Argentina" , "Armenia" , "Aruba"
+                                        , "Australia" , "Austria" , "Azerbaijan" , "Bahamas" , "Bahrain" , "Bangladesh"
+                                        , "Barbados" , "Belarus" , "Belgium" , "Belize" , "Benin" , "Bermuda" , "Bhutan"
+                                        , "Bolivia" , "Bosnia & Herzegovina" , "Botswana" , "Brazil"
+                                        , "British Virgin Islands" , "Brunei" , "Bulgaria" , "Burkina Faso" , "Burundi"
+                                        , "Cambodia" , "Cameroon" , "Cape Verde" , "Cayman Islands" , "Chad" , "Chile"
+                                        , "China" , "Colombia" , "Congo" , "Cook Islands" , "Costa Rica"
+                                        , "Cote D'Ivoire" , "Croatia" , "Cruise Ship" , "Cuba" , "Cyprus"
+                                        , "Czech Republic" , "Denmark" , "Djibouti" , "Dominica" , "Dominican Republic"
+                                        , "Ecuador" , "Egypt" , "El Salvador" , "Equatorial Guinea" , "Estonia"
+                                        , "Ethiopia" , "Falkland Islands" , "Faroe Islands" , "Fiji" , "Finland"
+                                        , "France" , "French Polynesia" , "French West Indies" , "Gabon" , "Gambia"
+                                        , "Georgia" , "Germany" , "Ghana" , "Gibraltar" , "Greece" , "Greenland"
+                                        , "Grenada" , "Guam" , "Guatemala" , "Guernsey" , "Guinea" , "Guinea Bissau"
+                                        , "Guyana" , "Haiti" , "Honduras" , "Hong Kong" , "Hungary" , "Iceland"
+                                        , "India" , "Indonesia" , "Iran" , "Iraq" , "Ireland" , "Isle of Man" , "Israel"
+                                        , "Italy" , "Jamaica" , "Japan" , "Jersey" , "Jordan" , "Kazakhstan" , "Kenya"
+                                        , "Kuwait" , "Kyrgyz Republic" , "Laos" , "Latvia" , "Lebanon" , "Lesotho"
+                                        , "Liberia" , "Libya" , "Liechtenstein" , "Lithuania" , "Luxembourg" , "Macau"
+                                        , "Macedonia" , "Madagascar" , "Malawi" , "Malaysia" , "Maldives" , "Mali"
+                                        , "Malta" , "Mauritania" , "Mauritius" , "Mexico" , "Moldova" , "Monaco"
+                                        , "Mongolia" , "Montenegro" , "Montserrat" , "Morocco" , "Mozambique"
+                                        , "Namibia" , "Nepal" , "Netherlands" , "Netherlands Antilles" , "New Caledonia"
+                                        , "New Zealand" , "Nicaragua" , "Niger" , "Nigeria" , "Norway" , "Oman"
+                                        , "Pakistan" , "Palestine" , "Panama" , "Papua New Guinea" , "Paraguay" , "Peru"
+                                        , "Philippines" , "Poland" , "Portugal" , "Puerto Rico" , "Qatar" , "Reunion"
+                                        , "Romania" , "Russia" , "Rwanda" , "Saint Pierre & Miquelon" , "Samoa"
+                                        , "San Marino" , "Satellite" , "Saudi Arabia" , "Senegal" , "Serbia"
+                                        , "Seychelles" , "Sierra Leone" , "Singapore" , "Slovakia" , "Slovenia"
+                                        , "South Africa" , "South Korea" , "Spain" , "Sri Lanka" , "St Kitts & Nevis"
+                                        , "St Lucia" , "St Vincent" , "St. Lucia" , "Sudan" , "Suriname" , "Swaziland"
+                                        , "Sweden" , "Switzerland" , "Syria" , "Taiwan" , "Tajikistan" , "Tanzania"
+                                        , "Thailand" , "Timor L'Este" , "Togo" , "Tonga" , "Trinidad & Tobago"
+                                        , "Tunisia" , "Turkey" , "Turkmenistan" , "Turks & Caicos" , "Uganda"
+                                        , "Ukraine" , "United Arab Emirates" , "United Kingdom" , "Uruguay"
+                                        , "Uzbekistan" , "Venezuela" , "Vietnam" , "Virgin Islands (US)" , "Yemen"
+                                        , "Zambia" , "Zimbabwe" ]; %>
+
+                                        <% country_list.forEach((item)=> { %>
+                                            <option value="<%= item %>" <%=item===user.country ? "selected" : null %>>
+                                                <%= item %>
+                                            </option>
+                                            <% }) %>
+
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div>
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label">Gender
+                                </label>
+                                <select id="gender" class="form-select" name="gender">
+                                    <option selected hidden disabled>Choose Here ..</option>
+                                    <option value="M" <%="M"===user.gender ? "selected" : "" %>>Male</option>
+                                    <option value="F" <%="F"===user.gender ? "selected" : "" %>>Female</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update changes</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                class="btn btn-danger">Delete user</button>
+                        </div>
+
+                    </form>
+
+
+
+                </section>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Dlete Customer</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this customer ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary foot-btn"
+                                    data-bs-dismiss="modal">Close</button>
+                                <form action="/edit/<%= user._id %>?_method=DELETE" method="post">
+                                    <button type="submit" class="btn btn-danger foot-btn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-
-                <div>
-                    <div class="col-md-6">
-                        <label for="gender" class="form-label">Gender
-                        </label>
-                        <select id="gender" class="form-select">
-                            <option selected hidden disabled>Choose Here ..</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                        </select>
-                    </div>
-                </div>
-                </div>
 
 
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Update changes</button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        class="btn btn-danger">Delete user</button>
-                </div>
-
-            </form>
+        </main>
 
 
+        <script src="../js/bootstrap.bundle.min.js"></script>
 
-        </section>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Dlete Customer</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this customer ?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary foot-btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger foot-btn">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </main>
-
-
-    <script src="../js/bootstrap.bundle.min.js"></script>
-
-    <script src="../js/sidebars.js"></script>
-      <script src="../js/main.js"></script>
+        <script src="../js/sidebars.js"></script>
+        <script src="../js/main.js"></script>
 </body>
 
 </html>
