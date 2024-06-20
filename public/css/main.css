@@ -1,0 +1,63 @@
+/* Target all icons inside buttons */
+.btn i {
+  font-size: 1rem;
+  /* Adjust this value as needed */
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.bi-list::before {
+  content: "\f479";
+  font-size: 2rem;
+}
+
+.sidebar{
+  width: 280px;
+  transition: 0.3s;
+}
+
+.small-sidebar{
+  width: 80px;
+}
+
+
+.small-sidebar .sidebar-text{
+  display: none;
+}
+
+.bi-lightning-charge::before {
+  content: "\f46d";
+  font-size: 1.5rem;
+  transition: 1s;
+  rotate:40deg ;
+}
+
+
+.small-sidebar .bi-lightning-charge::before {
+  content: "\F46C";
+  font-size: 1.5rem;
+  transform:  rotateY(360deg);
+  transition: 1s;
+  margin-left: 0.7rem ;
+  margin-top: 40px;
+}
+
+.bi-x-circle{
+  font-size: 1.4rem;
+  transition: 1s;
+}
+
+.small-sidebar .bi-x-circle::before{
+ content: "\F134";
+ font-size: 1.4rem;
+}
+
+.foot-btn{
+  margin-right: 24px;
+}
+
+

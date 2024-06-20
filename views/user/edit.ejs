@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="../js/color-modes.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Edit Customer</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../css/dark-light.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+
+
+</head>
+
+<body>
+      <!-- dark-light-mode -->
+    <%- include('../components/dark-light-mode.ejs') %>
+
+    <main class="d-flex flex-nowrap">
+
+
+
+        <%- include('../components/sidebar.ejs',{currentPage : "edit"}) %>
+
+        <section class="w-100">
+
+
+
+            <%- include('../components/navbar.ejs') %>
+
+
+
+            <nav aria-label="breadcrumb" class="d-flex   mt-3  ms-1 justify-content-md-between px-2  flex-wrap">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Amine Fatih</li>
+                </ol>
+                <p class="me-md-5"><span class="fw-medium fs-5">Id :</span> 84932926398463922</p>
+              </nav>
+
+
+
+
+
+            <!-- formulaire -->
+            <form class="row g-3 mx-0">
+                <div class="col-md-6">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="first-name" placeholder="ex : Med-Amine">
+                </div>
+                <div class="col-md-6">
+                    <label for="last-name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="last-name" placeholder="ex : Fatih">
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="ex : example@gmail.com">
+                </div>
+                <div class="col-md-6">
+                    <label for="phone-number" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone-number" placeholder="ex : 0674535810">
+                </div>
+                <div class="col-md-6">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="ex : 19" min="7">
+                </div>
+
+                <div>
+                    <div class="col-md-6">
+                        <label for="Country" class="form-label">Country</label>
+                        <select id="Country" class="form-select">
+                            <option selected hidden disabled>Choose Here ..</option>
+                            <option>Morocco</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+
+                <div>
+                    <div class="col-md-6">
+                        <label for="gender" class="form-label">Gender
+                        </label>
+                        <select id="gender" class="form-select">
+                            <option selected hidden disabled>Choose Here ..</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Update changes</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        class="btn btn-danger">Delete user</button>
+                </div>
+
+            </form>
+
+
+
+        </section>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Dlete Customer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this customer ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary foot-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger foot-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/sidebars.js"></script>
+      <script src="../js/main.js"></script>
+</body>
+
+</html>

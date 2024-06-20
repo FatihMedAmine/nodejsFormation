@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="../js/color-modes.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.122.0">
+  <title>Add Customers</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="../css/dark-light.css">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/sidebars.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+
+
+</head>
+
+<body>
+    <!-- dark-light-mode -->
+   <%- include('../components/dark-light-mode.ejs') %>
+
+  <main class="d-flex flex-nowrap">
+
+       <%- include('../components/sidebar.ejs',{currentPage : "AddCustomers"}) %>
+
+
+
+
+
+
+
+    <section class="w-100">
+        <%- include('../components/navbar.ejs') %>
+
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-3 ms-3">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Library</li>
+        </ol>
+      </nav>
+
+      <!-- formulaire -->
+      <form class="row g-3 mx-0" method="post" action="/user/AddCustomers.html">
+        <div class="col-md-6">
+          <label for="first-name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first-name" placeholder="ex : Med-Amine" name="firstname">
+        </div>
+        <div class="col-md-6">
+          <label for="last-name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last-name" placeholder="ex : Fatih" name="lastname">
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="ex : example@gmail.com" name="email">
+        </div>
+        <div class="col-md-6">
+          <label for="phone-number" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="phone-number" placeholder="ex : 0674535810" name="phone">
+        </div>
+        <div class="col-md-6">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" placeholder="ex : 19" min="7" name="age">
+        </div>
+
+        <div>
+          <div class="col-md-6">
+            <label for="Country" class="form-label">Country</label>
+            <select id="Country" class="form-select" name="country">
+              <option selected hidden disabled>Choose Here ..</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Italie">Italie</option>
+            </select>
+          </div>
+        </div>
+        </div>
+
+        <div>
+          <div class="col-md-6">
+            <label for="gender" class="form-label">Gender
+            </label>
+            <select id="gender" class="form-select" name="gender">
+              <option selected hidden disabled >Choose Here ..</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+          </div>
+        </div>
+        </div>
+
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+        
+      </form>
+
+
+
+    </section>
+
+  </main>
+
+
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+  <script src="../js/sidebars.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
