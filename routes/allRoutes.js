@@ -35,20 +35,6 @@ router.get('/', (req, res) => {
   
   
   // Post Request
-  router.post('/', (req, res) => {
-    const article = new Mydata({
-      username: req.body.username
-    })
-  
-    article.save()
-      .then(result => {
-        res.send("Data saved successfully")
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  })
-  
 
   
   // search
