@@ -16,4 +16,4 @@ const addCustomer =  (req, res) => {
 }
 
 
-module.exports = addCustomer;
+module.exports = {addCustomer}  ;
