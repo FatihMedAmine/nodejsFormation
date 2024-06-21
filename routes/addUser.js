@@ -5,9 +5,13 @@ var moment = require('moment'); // require
 const addUserController = require('../controllers/addUserController')
 
 
+router.get('/AddCustomers', (req, res) => {
+     
+    res.render('user/addCustomers')
 
+})
 
-// router.post('/AddCustomers.html', addUserController.addCustomer)
+router.post('/AddCustomers.html', addUserController.addCustomer)
 
 
 

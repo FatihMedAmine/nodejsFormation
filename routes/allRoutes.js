@@ -7,19 +7,12 @@ var moment = require('moment'); // require
 
 // Get Request
 
-router.get('/AddCustomers', (req, res) => {
-  console.log('get request')
-
-     res.render('user/AddCustomers')
-
-})
-
 
 //Nb : cest que on est dans views folder
 router.get('/', (req, res) => {
 
     User.find().then(result => {
-      res.render('user/AddCustomers', { users: result, moment: moment })
+      res.render('index', { users: result, moment: moment })
     }).catch(err => {
       console.log(err)
     })
