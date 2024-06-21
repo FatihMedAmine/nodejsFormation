@@ -7,7 +7,7 @@ const addUserController = require('../controllers/addUserController')
 
 router.get('/AddCustomers', (req, res) => {
      
-    res.render('user/addCustomers')
+    res.render('user/addUser')
 
 })
 

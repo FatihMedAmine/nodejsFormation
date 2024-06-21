@@ -12,7 +12,7 @@ var moment = require('moment'); // require
 router.get('/', (req, res) => {
 
     User.find().then(result => {
-      res.render('index', { users: result, moment: moment })
+      res.render('user/addUser', { users: result, moment: moment })
     }).catch(err => {
       console.log(err)
     })
