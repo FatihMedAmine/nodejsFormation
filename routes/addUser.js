@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/customersShema');
 var moment = require('moment'); // require
+const addUserController = require('../controllers/addUserController')
 
 
 router.get('/AddCustomers.html', (req, res) => {
@@ -10,16 +11,7 @@ router.get('/AddCustomers.html', (req, res) => {
 
 })
 
-router.post('/AddCustomers.html', (req, res) => {
-    const user = new User(req.body)
-    user.save().then(() => {
-        res.redirect('/')
-    }
-    ).catch(err => {
-        console.log(err)
-    })
-
-})
+router.post('/AddCustomers.html', addUserController.addCustomer)
 
 
 
