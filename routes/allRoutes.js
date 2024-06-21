@@ -7,10 +7,10 @@ var moment = require('moment'); // require
 
 // Get Request
 
-router.get('/AddCustomers.html', (req, res) => {
+router.get('/AddCustomers', (req, res) => {
   console.log('get request')
 
-  res.render('user/AddCustomers')
+     res.render('user/AddCustomers')
 
 })
 

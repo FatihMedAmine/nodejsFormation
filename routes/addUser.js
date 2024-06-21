@@ -7,7 +7,7 @@ const addUserController = require('../controllers/addUserController')
 
 
 
-router.post('/AddCustomers.html', addUserController.addCustomer)
+// router.post('/AddCustomers.html', addUserController.addCustomer)
 
 
 
