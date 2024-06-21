@@ -49,5 +49,5 @@ mongoose.connect('mongodb+srv://Med-Amine:YjpP1EZWdi4icrrN@cluster0.p4zcjmd.mong
 
 
   app.use(allRoutes)
-  app.use('/user' , addUserRoute)
-  app.use(editUserRoute)
+  // app.use('/user' , addUserRoute)
+  // app.use(editUserRoute)
