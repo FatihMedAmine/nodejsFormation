@@ -19,7 +19,7 @@ router.get('/AddCustomers', (req, res) => {
 router.get('/', (req, res) => {
 
     User.find().then(result => {
-      res.render('index', { users: result, moment: moment })
+      res.render('user/AddCustomers', { users: result, moment: moment })
     }).catch(err => {
       console.log(err)
     })
