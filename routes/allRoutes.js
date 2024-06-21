@@ -7,6 +7,7 @@ var moment = require('moment'); // require
 
 // Get Request
 
+
 //Nb : cest que on est dans views folder
 router.get('/', (req, res) => {
 
