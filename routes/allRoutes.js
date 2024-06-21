@@ -7,6 +7,13 @@ var moment = require('moment'); // require
 
 // Get Request
 
+router.get('/AddCustomers.html', (req, res) => {
+  console.log('get request')
+
+  res.render('user/AddCustomers')
+
+})
+
 
 //Nb : cest que on est dans views folder
 router.get('/', (req, res) => {

@@ -5,12 +5,7 @@ var moment = require('moment'); // require
 const addUserController = require('../controllers/addUserController')
 
 
-router.get('/AddCustomers.html', (req, res) => {
-    console.log('get request')
 
-    res.render('user/AddCustomers')
-
-})
 
 router.post('/AddCustomers.html', addUserController.addCustomer)
 
