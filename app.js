@@ -31,23 +31,6 @@ liveReloadServer.server.once("connection", () => {
 
 
 
-
-
-mongoose.connect('mongodb+srv://Med-Amine:YjpP1EZWdi4icrrN@cluster0.p4zcjmd.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => {
-
-    app.listen(port, () => {
-      console.log(`http://localhost:${port}/`)
-    })
-
-  })
-
-  .catch(err => {
-    console.log('error', err);
-  });
-
-
-
   app.use(allRoutes)
   app.use('/user' , addUserRoute)
   app.use(editUserRoute)
